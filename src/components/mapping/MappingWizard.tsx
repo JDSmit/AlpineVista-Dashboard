@@ -69,7 +69,7 @@ export function MappingWizard({ parseResult, onComplete, onCancel }: MappingWiza
   const handleMappingChange = (field: keyof ColumnMapping, value: string) => {
     setMappings(prev => ({
       ...prev,
-      [field]: value,
+      [field]: value === 'none' ? undefined : value,
     }));
   };
 
@@ -253,7 +253,7 @@ export function MappingWizard({ parseResult, onComplete, onCancel }: MappingWiza
                             <SelectValue placeholder="Select column (optional)" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="">None</SelectItem>
+                            <SelectItem value="none">None</SelectItem>
                             {parseResult.headers[selectedSheet]?.map((header, index) => (
                               <SelectItem key={index} value={header}>
                                 {header}

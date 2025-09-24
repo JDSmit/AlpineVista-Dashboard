@@ -263,20 +263,20 @@ export default function DashboardPage() {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Compare With</label>
                   <Select
-                    value={compareWith || ''}
-                    onValueChange={(value) => setCompareWith(value || null)}
+                    value={compareWith || 'none'}
+                    onValueChange={(value) => setCompareWith(value === 'none' ? null : value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select comparison period" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="">No comparison</SelectItem>
-                      {availablePeriods.map(period => (
-                        <SelectItem key={period} value={period}>
-                          {period}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
+                  <SelectContent>
+                    <SelectItem value="none">No comparison</SelectItem>
+                    {availablePeriods.map(period => (
+                      <SelectItem key={period} value={period}>
+                        {period}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
                   </Select>
                 </div>
                 
