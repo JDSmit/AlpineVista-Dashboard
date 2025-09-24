@@ -21,8 +21,8 @@ export default function HomePage() {
   const handleMappingComplete = () => {
     setShowMapping(false);
     setShowUpload(false);
-    // Here you would typically save the dataset and navigate to dashboard
-    alert('Dataset created successfully! Ready to view dashboard.');
+    // Navigate to the dashboard
+    window.location.href = '/dashboard-simple';
   };
 
   const handleBackToUpload = () => {
@@ -105,7 +105,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="pt-4">
-                  <Button className="w-full">
+                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-simple'}>
                     Open Dashboard
                   </Button>
                 </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="pt-4">
-                  <Button className="w-full">
+                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-simple'}>
                     Open Dashboard
                   </Button>
                 </div>
