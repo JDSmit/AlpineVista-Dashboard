@@ -213,7 +213,7 @@ export function MappingWizard({ parseResult, onComplete, onCancel }: MappingWiza
                           {field.label}
                         </label>
                         <Select
-                          value={mappings[field.key as keyof ColumnMapping] || ''}
+                          value={mappings[field.key as keyof ColumnMapping] || 'none'}
                           onValueChange={(value) => handleMappingChange(field.key as keyof ColumnMapping, value)}
                         >
                           <SelectTrigger className="flex-1">
@@ -246,7 +246,7 @@ export function MappingWizard({ parseResult, onComplete, onCancel }: MappingWiza
                           {field.label}
                         </label>
                         <Select
-                          value={mappings[field.key as keyof ColumnMapping] || ''}
+                          value={mappings[field.key as keyof ColumnMapping] || 'none'}
                           onValueChange={(value) => handleMappingChange(field.key as keyof ColumnMapping, value)}
                         >
                           <SelectTrigger className="flex-1">
