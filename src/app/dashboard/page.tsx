@@ -244,13 +244,14 @@ export default function DashboardPage() {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Selected Periods</label>
                   <Select
-                    value={selectedPeriods.join(',')}
-                    onValueChange={(value) => setSelectedPeriods(value ? value.split(',') : [])}
+                    value={selectedPeriods.length > 0 ? selectedPeriods.join(',') : 'none'}
+                    onValueChange={(value) => setSelectedPeriods(value === 'none' ? [] : value.split(','))}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select periods" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="none">No periods selected</SelectItem>
                       {availablePeriods.map(period => (
                         <SelectItem key={period} value={period}>
                           {period}
