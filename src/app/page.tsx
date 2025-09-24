@@ -21,8 +21,8 @@ export default function HomePage() {
   const handleMappingComplete = () => {
     setShowMapping(false);
     setShowUpload(false);
-    // Navigate to the dashboard
-    window.location.href = '/dashboard-simple';
+    // Navigate to the cumulative dashboard
+    window.location.href = '/dashboard-cumulative';
   };
 
   const handleBackToUpload = () => {
@@ -105,7 +105,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="pt-4">
-                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-simple'}>
+                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-cumulative'}>
                     Open Dashboard
                   </Button>
                 </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="pt-4">
-                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-simple'}>
+                  <Button className="w-full" onClick={() => window.location.href = '/dashboard-cumulative'}>
                     Open Dashboard
                   </Button>
                 </div>
