@@ -1,69 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { SimpleUploader } from '@/components/upload/SimpleUploader';
-import { SimpleMapping } from '@/components/mapping/SimpleMapping';
 import { Upload, BarChart3, Building } from 'lucide-react';
 
-export default function HomePage() {
-  const [showUpload, setShowUpload] = useState(false);
-  const [showMapping, setShowMapping] = useState(false);
-  const [uploadedFileName, setUploadedFileName] = useState('');
-
-  const handleFileUploaded = (fileName: string) => {
-    setUploadedFileName(fileName);
-    setShowUpload(false);
-    setShowMapping(true);
-  };
-
-  const handleMappingComplete = () => {
-    setShowMapping(false);
-    setShowUpload(false);
-    // Here you would typically save the dataset and navigate to dashboard
-    alert('Dataset created successfully! Ready to view dashboard.');
-  };
-
-  const handleBackToUpload = () => {
-    setShowMapping(false);
-    setShowUpload(true);
-  };
-
-  const handleBackToHome = () => {
-    setShowUpload(false);
-    setShowMapping(false);
-  };
-
-  if (showMapping) {
-    return (
-      <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8">
-          <SimpleMapping
-            fileName={uploadedFileName}
-            onMappingComplete={handleMappingComplete}
-            onBack={handleBackToUpload}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  if (showUpload) {
-    return (
-      <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8">
-          <SimpleUploader onFileUploaded={handleFileUploaded} />
-          <div className="mt-6 text-center">
-            <Button variant="outline" onClick={handleBackToHome}>
-              Back to Home
-            </Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+export default function SimpleHomePage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -74,7 +16,7 @@ export default function HomePage() {
             Track and analyze financial performance for senior living facilities
           </p>
           
-          <Button size="lg" className="mr-4" onClick={() => setShowUpload(true)}>
+          <Button size="lg" className="mr-4">
             <Upload className="h-5 w-5 mr-2" />
             Upload New Data
           </Button>
