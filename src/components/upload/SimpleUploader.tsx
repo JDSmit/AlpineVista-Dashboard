@@ -15,16 +15,27 @@ export function SimpleUploader({ onFileUploaded }: SimpleUploaderProps) {
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
   const [fileName, setFileName] = useState('');
 
-  const handleFileSelect = (file: File) => {
+  const handleFileSelect = async (file: File) => {
     if (file) {
       setFileName(file.name);
       setUploadStatus('uploading');
       
-      // Simulate upload process
-      setTimeout(() => {
+      try {
+        // Parse the Excel file to detect sheets
+        const XLSX = await import('xlsx');
+        const data = new Uint8Array(await file.arrayBuffer());
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetNames = workbook.SheetNames;
+        
+        // Simulate processing time
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
         setUploadStatus('success');
         onFileUploaded(file.name);
-      }, 1500);
+      } catch (error) {
+        console.error('Error parsing Excel file:', error);
+        setUploadStatus('error');
+      }
     }
   };
 

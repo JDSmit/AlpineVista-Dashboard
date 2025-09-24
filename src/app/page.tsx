@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SimpleUploader } from '@/components/upload/SimpleUploader';
-import { SimpleMapping } from '@/components/mapping/SimpleMapping';
+import { EnhancedMapping } from '@/components/mapping/EnhancedMapping';
 import { Upload, BarChart3, Building } from 'lucide-react';
 
 export default function HomePage() {
@@ -39,7 +39,7 @@ export default function HomePage() {
     return (
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
-          <SimpleMapping
+          <EnhancedMapping
             fileName={uploadedFileName}
             onMappingComplete={handleMappingComplete}
             onBack={handleBackToUpload}
